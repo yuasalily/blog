@@ -1,0 +1,40 @@
+{
+    "name": "Blog",
+    "image": "mcr.microsoft.com/devcontainers/base:jammy",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "christian-kohler.path-intellisense",
+                "astro-build.astro-vscode",
+                "stylelint.vscode-stylelint",
+                "bradlc.vscode-tailwindcss"
+            ],
+            "settings": {
+                "files.autoSave": "onFocusChange",
+                "files.trimFinalNewlines": true,
+                "files.trimTrailingWhitespace": true,
+                "editor.minimap.enabled": false,
+                "editor.fontSize": 16,
+                "editor.bracketPairColorization.enabled": true,
+                "editor.copyWithSyntaxHighlighting": false,
+                "editor.formatOnSave": true,
+                "editor.inlayHints.enabled": "on",
+                "workbench.editor.enablePreview": false,
+                "workbench.editor.enablePreviewFromQuickOpen": false,
+                "workbench.tree.renderIndentGuides": "always",
+                "editor.codeActionsOnSave": {
+                    "source.organizeImports": true,
+                    "quickfix.biome": true
+                },
+                "editor.quickSuggestions": {
+                    "strings": true
+                },
+                "dotfiles.repository": "https://github.com/yuasalily/dotfiles.git",
+                "dotfiles.targetPath": "~/dotfiles"
+            }
+        }
+    },
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {}
+    }
+}

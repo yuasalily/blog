@@ -1,0 +1,14 @@
+---
+import BaseLayouts, {
+    type Props as BaseLayoutProps,
+} from "@layouts/BaseLayout.astro";
+
+export interface Props extends BaseLayoutProps {}
+
+const props = Astro.props;
+---
+
+<!-- 一番目立つ部分（トップページなど）をheroと呼ぶことがあるらしい -->
+<BaseLayouts {...props}>
+    <slot />
+</BaseLayouts>

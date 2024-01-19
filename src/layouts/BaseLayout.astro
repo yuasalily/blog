@@ -1,0 +1,20 @@
+---
+import NavigationBar from "@components/NavigationBar.astro";
+
+const { title } = Astro.props;
+export interface Props {
+    title?: string;
+}
+---
+
+<html lang="ja">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{title}</title>
+    </head>
+    <body class="bg-gray-800">
+        <NavigationBar />
+        <slot />
+    </body>
+</html>

@@ -1,4 +1,5 @@
 ---
+import MarkdownLayout from "@layouts/MarkdownLayout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
@@ -13,6 +14,6 @@ const { entry } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<div class="flex justify-center w-1/2">
-    <article class="prose"><Content /></article>
-</div>
+<MarkdownLayout>
+    <Content />
+</MarkdownLayout>

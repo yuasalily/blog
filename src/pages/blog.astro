@@ -1,15 +1,30 @@
 ---
+import ContentCard from "@components/ContentCard.astro";
+import HeroLayout from "@layouts/HeroLayout.astro";
 import { getCollection } from "astro:content";
 const allPosts = await getCollection("blog");
 ---
 
-<p>content list</p>
-<ul>
-    {
-        allPosts.map((post) => (
-            <li>
-                <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-            </li>
-        ))
-    }
-</ul>
+<HeroLayout title="ブログ">
+    <section class="py-6 sm:py-12 bg-gray-800 text-gray-100">
+        <div class="container p-6 mx-auto space-y-8">
+            <div class="space-y-2 text-center">
+                <h2 class="text-3xl font-bold">記事一覧</h2>
+                <p class="font-serif text-sm text-gray-400">いい感じの副題</p>
+            </div>
+            <div
+                class="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-4"
+            >
+                {
+                    allPosts.map((post) => (
+                        <ContentCard
+                            title={post.data.title}
+                            description={post.data.description}
+                            link={`/blog/${post.slug}`}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+    </section>
+</HeroLayout>

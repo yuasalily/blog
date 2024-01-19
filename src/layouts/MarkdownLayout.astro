@@ -1,0 +1,15 @@
+---
+import BaseLayouts, {
+    type Props as BaseLayoutProps,
+} from "@layouts/BaseLayout.astro";
+
+export interface Props extends BaseLayoutProps {}
+
+const props = Astro.props;
+---
+
+<BaseLayouts {...props}>
+    <div class="flex justify-center">
+        <article class="prose prose-invert"><slot /></article>
+    </div>
+</BaseLayouts>

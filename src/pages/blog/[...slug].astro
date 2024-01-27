@@ -1,19 +1,82 @@
 ---
+import ContentLinkCard from "@components/ContentLinkCard.astro";
 import MarkdownLayout from "@layouts/MarkdownLayout.astro";
 import { getCollection } from "astro:content";
 
 export async function getStaticPaths() {
     const blogEntries = await getCollection("blog");
-    return blogEntries.map((entry) => ({
-        params: { slug: entry.slug },
-        props: { entry },
-    }));
+    return blogEntries.map((entry) => {
+        const sameKindPost = blogEntries.filter(
+            (post) => post.data.page_kind == entry.data.page_kind,
+        );
+        const prevPost = sameKindPost.find(
+            (post) => post.data.page_number == entry.data.page_number - 1,
+        );
+        const nextPost = sameKindPost.find(
+            (post) => post.data.page_number == entry.data.page_number + 1,
+        );
+        const relatedPosts = sameKindPost
+            .sort(
+                (post1, post2) =>
+                    post1.data.page_number - post2.data.page_number,
+            )
+            .map((post) => ({
+                slug: `/blog/${post.slug}`,
+                title: post.data.title,
+            }));
+        return {
+            params: { slug: entry.slug },
+            props: {
+                entry,
+                hasPrevPost: prevPost !== undefined,
+                prevSlug: `/blog/${prevPost?.slug}`,
+                prevTitle: prevPost?.data.title,
+                hasNextPost: nextPost !== undefined,
+                nextSlug: `/blog/${nextPost?.slug}`,
+                nextTitle: nextPost?.data.title,
+                relatedPosts: relatedPosts,
+            },
+        };
+    });
 }
 
-const { entry } = Astro.props;
+const {
+    entry,
+    hasPrevPost,
+    prevSlug,
+    prevTitle,
+    hasNextPost,
+    nextSlug,
+    nextTitle,
+    relatedPosts,
+} = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<MarkdownLayout>
+<MarkdownLayout title={entry.data.title} posts={relatedPosts}>
     <Content />
+    <div class="flex justify-between space-x-8">
+        <div class="w-1/2">
+            {
+                hasPrevPost ? (
+                    <ContentLinkCard
+                        title={prevTitle}
+                        link={prevSlug}
+                        type="prev"
+                    />
+                ) : null
+            }
+        </div>
+        <div class="w-1/2">
+            {
+                hasNextPost ? (
+                    <ContentLinkCard
+                        title={nextTitle}
+                        link={nextSlug}
+                        type="next"
+                    />
+                ) : null
+            }
+        </div>
+    </div>
 </MarkdownLayout>

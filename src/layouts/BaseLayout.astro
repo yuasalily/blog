@@ -3,7 +3,7 @@ import NavigationBar from "@components/NavigationBar.astro";
 
 const { title } = Astro.props;
 export interface Props {
-    title?: string;
+    title: string;
 }
 ---
 
@@ -14,7 +14,13 @@ export interface Props {
         <title>{title}</title>
     </head>
     <body class="bg-gray-800">
-        <NavigationBar />
-        <slot />
+        <div class="relative pb-24">
+            <div class="sticky top-0 left-0 w-full z-50">
+                <NavigationBar />
+            </div>
+            <div>
+                <slot />
+            </div>
+        </div>
     </body>
 </html>

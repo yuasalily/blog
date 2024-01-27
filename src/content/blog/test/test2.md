@@ -1,17 +1,15 @@
 ---
-title: "subtest"
-pubDate: 2023-11-25
-description: "subtest page"
-author: "Me"
-image:
-  url: "https://docs.astro.build/assets/full-logo-light.png"
-  alt: "Astroのロゴ。"
+title: "test2"
+description: "test2"
+page_number: 2
+page_kind: "test"
+is_content_index: false
 tags: ["astro", "ブログ", "公開学習"]
 ---
 
 # subtest page
 
-this is subtest page
+test2
 
 # H1
 

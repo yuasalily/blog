@@ -1,15 +1,29 @@
 ---
+import Sidebar from "@components/Sidebar.astro";
 import BaseLayouts, {
     type Props as BaseLayoutProps,
 } from "@layouts/BaseLayout.astro";
-
-export interface Props extends BaseLayoutProps {}
+type Post = {
+    slug: string;
+    title: string;
+};
+export interface Props extends BaseLayoutProps {
+    posts: Post[];
+}
 
 const props = Astro.props;
 ---
 
 <BaseLayouts {...props}>
-    <div class="flex justify-center">
-        <article class="prose prose-invert"><slot /></article>
+    <div class="flex gap-x-4 relative">
+        <div class="bg-gray-900 text-gray-100 h-screen hidden fixed lg:block">
+            <div class="overflow-y-scroll h-screen pb-56">
+                <Sidebar posts={props.posts} currentTitle={props.title} />
+            </div>
+        </div>
+
+        <div class="flex-1 pl-10 lg:pl-80 pt-6">
+            <article class="prose prose-invert"><slot /></article>
+        </div>
     </div>
 </BaseLayouts>

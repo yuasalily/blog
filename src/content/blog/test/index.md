@@ -1,11 +1,9 @@
 ---
 title: "test"
-pubDate: 2023-11-25
 description: "test page"
-author: "Me"
-image:
-  url: "https://docs.astro.build/assets/full-logo-light.png"
-  alt: "Astroのロゴ。"
+page_number: 0
+page_kind: "test"
+is_content_index: true
 tags: ["astro", "ブログ", "公開学習"]
 ---
 
@@ -32,5 +30,3 @@ _italicized text_
 - First item
 - Second item
 - Third item
-
-`code`

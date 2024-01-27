@@ -2,7 +2,10 @@
 import ContentCard from "@components/ContentCard.astro";
 import HeroLayout from "@layouts/HeroLayout.astro";
 import { getCollection } from "astro:content";
-const allPosts = await getCollection("blog");
+const allPosts = await getCollection(
+    "blog",
+    ({ data }) => data.is_content_index,
+);
 ---
 
 <HeroLayout title="ブログ">

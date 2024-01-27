@@ -1,0 +1,66 @@
+---
+title: "if"
+description: "rustlingsの解答集です"
+page_number: 4
+page_kind: "rustlings"
+is_content_index: false
+tags: ["rust", "rustlings"]
+---
+
+## if
+### if1
+ifで条件分岐を書く。
+```
+pub fn bigger(a: i32, b: i32) -> i32 {
+    // Complete this function to return the bigger number!
+    // Do not use:
+    // - another function call
+    // - additional variables
+    if a > b {
+        a
+    } else {
+        b
+    }
+}
+```
+### if2
+複数条件で分岐を書く。テスト見ないと条件分岐がわからないやつ。
+```
+pub fn foo_if_fizz(fizzish: &str) -> &str {
+    if fizzish == "fizz" {
+        "foo"
+    } else if fizzish == "fuzz" {
+        "bar"
+    } else {
+        "baz"
+    }
+}
+```
+### if3
+identifierの型をそろえる。数字は1,2,3以外ならなんでもよさそうなので適当に-1。rustではif文で値を返せるのでletの右にif文が書ける。
+```
+pub fn animal_habitat(animal: &str) -> &'static str {
+    let identifier = if animal == "crab" {
+        1
+    } else if animal == "gopher" {
+        2
+    } else if animal == "snake" {
+        3
+    } else {
+        -1
+    };
+
+    // DO NOT CHANGE THIS STATEMENT BELOW
+    let habitat = if identifier == 1 {
+        "Beach"
+    } else if identifier == 2 {
+        "Burrow"
+    } else if identifier == 3 {
+        "Desert"
+    } else {
+        "Unknown"
+    };
+
+    habitat
+}
+```

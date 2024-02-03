@@ -7,7 +7,7 @@ const postsCollection = defineCollection({
         title: z.string(),
         description: z.string(),
         tags: z.array(z.string()),
-        page_number: z.number(),
+        page_order: z.number(),
         page_kind: z.string(),
         is_content_index: z.boolean(),
     })

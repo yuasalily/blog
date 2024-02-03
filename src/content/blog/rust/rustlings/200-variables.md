@@ -1,7 +1,7 @@
 ---
 title: "variables"
 description: "rustlingsの解答集です"
-page_number: 2
+page_order: 200
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

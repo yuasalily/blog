@@ -1,7 +1,7 @@
 ---
 title: "lifetime"
 description: "rustlingsの解答集です"
-page_number: 20
+page_order: 2000
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

@@ -1,7 +1,7 @@
 ---
 title: "hashmaps"
 description: "rustlingsの解答集です"
-page_number: 13
+page_order: 1300
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

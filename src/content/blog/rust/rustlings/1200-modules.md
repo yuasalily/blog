@@ -1,7 +1,7 @@
 ---
 title: "modules"
 description: "rustlingsの解答集です"
-page_number: 12
+page_order: 1200
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

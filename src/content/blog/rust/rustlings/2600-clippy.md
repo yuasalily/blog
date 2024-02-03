@@ -1,7 +1,7 @@
 ---
 title: "clippy"
 description: "rustlingsの解答集です"
-page_number: 26
+page_order: 2600
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

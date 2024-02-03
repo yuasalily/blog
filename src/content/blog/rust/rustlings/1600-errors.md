@@ -1,7 +1,7 @@
 ---
 title: "errors"
 description: "rustlingsの解答集です"
-page_number: 16
+page_order: 1600
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

@@ -1,7 +1,7 @@
 ---
 title: "enums"
 description: "rustlingsの解答集です"
-page_number: 10
+page_order: 1000
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

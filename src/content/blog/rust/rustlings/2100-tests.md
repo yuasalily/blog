@@ -1,7 +1,7 @@
 ---
 title: "tests"
 description: "rustlingsの解答集です"
-page_number: 21
+page_order: 2100
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

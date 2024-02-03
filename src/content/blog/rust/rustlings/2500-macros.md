@@ -1,7 +1,7 @@
 ---
 title: "macros"
 description: "rustlingsの解答集です"
-page_number: 25
+page_order: 2500
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

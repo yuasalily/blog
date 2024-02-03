@@ -1,7 +1,7 @@
 ---
 title: "conversions"
 description: "rustlingsの解答集です"
-page_number: 27
+page_order: 2700
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

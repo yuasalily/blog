@@ -1,7 +1,7 @@
 ---
 title: "threads"
 description: "rustlingsの解答集です"
-page_number: 24
+page_order: 2400
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

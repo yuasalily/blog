@@ -7,33 +7,37 @@ export async function getStaticPaths() {
     const blogEntries = await getCollection("blog");
     return blogEntries.map((entry) => {
         const sameKindPost = blogEntries.filter(
-            (post) => post.data.page_kind == entry.data.page_kind,
-        );
-        const prevPost = sameKindPost.find(
-            (post) => post.data.page_number == entry.data.page_number - 1,
-        );
-        const nextPost = sameKindPost.find(
-            (post) => post.data.page_number == entry.data.page_number + 1,
+            (post) => post.data.page_kind === entry.data.page_kind,
         );
         const relatedPosts = sameKindPost
             .sort(
-                (post1, post2) =>
-                    post1.data.page_number - post2.data.page_number,
+                (post1, post2) => post1.data.page_order - post2.data.page_order,
             )
-            .map((post) => ({
+            .map((post, i) => ({
+                idx: i,
                 slug: `/blog/${post.slug}`,
                 title: post.data.title,
             }));
+        const currentPost = relatedPosts.find(
+            (post) => post.title === entry.data.title,
+        );
+        const prevPost = relatedPosts.find(
+            (post) => post.idx == currentPost!.idx - 1,
+        );
+        const nextPost = relatedPosts.find(
+            (post) => post.idx == currentPost!.idx + 1,
+        );
+
         return {
             params: { slug: entry.slug },
             props: {
                 entry,
                 hasPrevPost: prevPost !== undefined,
-                prevSlug: `/blog/${prevPost?.slug}`,
-                prevTitle: `${prevPost?.data.title}`,
+                prevSlug: `${prevPost?.slug}`,
+                prevTitle: `${prevPost?.title}`,
                 hasNextPost: nextPost !== undefined,
-                nextSlug: `/blog/${nextPost?.slug}`,
-                nextTitle: `${nextPost?.data.title}`,
+                nextSlug: `${nextPost?.slug}`,
+                nextTitle: `${nextPost?.title}`,
                 relatedPosts: relatedPosts,
             },
         };

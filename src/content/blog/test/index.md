@@ -1,7 +1,7 @@
 ---
 title: "test"
 description: "test page"
-page_number: 0
+page_order: 0
 page_kind: "test"
 is_content_index: true
 tags: ["astro", "ブログ", "公開学習"]

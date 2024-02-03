@@ -1,7 +1,7 @@
 ---
 title: "vecs"
 description: "rustlingsの解答集です"
-page_number: 7
+page_order: 700
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]

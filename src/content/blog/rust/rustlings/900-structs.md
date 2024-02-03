@@ -1,7 +1,7 @@
 ---
 title: "structs"
 description: "rustlingsの解答集です"
-page_number: 9
+page_order: 900
 page_kind: "rustlings"
 is_content_index: false
 tags: ["rust", "rustlings"]
